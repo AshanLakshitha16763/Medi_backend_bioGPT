@@ -9,7 +9,7 @@ CORS(app)
 model_name = "microsoft/BioGPT"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
-text_gen_model = pipeline('text-generation', model=model, tokenizer=tokenizer, truncation=True, device=-1) # device=0 to use GPU in mac
+text_gen_model = pipeline('text-generation', model=model, tokenizer=tokenizer, truncation=True, device=0) # device=0 to use GPU in mac
 
 def generate_ai_suggestions(input_text, num_suggestions=1):
     generated = text_gen_model(input_text, max_length=10, num_return_sequences=num_suggestions, num_beams=1)
@@ -40,4 +40,4 @@ def get_first_prompt():
     return jsonify({'prompt': "Type something here..."})
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=int("5000"),debug=True)
+    app.run(host="0.0.0.0", port=int("8000"),debug=True)
