@@ -16,6 +16,9 @@ COPY . /app
 
 # Install Python dependencies
 RUN pip install -r requirements.txt
-CMD ["python", "medi_backend_gpt2_pipe.py"]
+
 # Expose the application port
-EXPOSE 8080
+EXPOSE 5000
+
+# Run the application
+CMD ["python", "medi_backend_BioGPT.py"]
