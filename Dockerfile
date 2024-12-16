@@ -18,7 +18,7 @@ COPY . /app
 RUN pip install -r requirements.txt
 
 # Expose the application port
-EXPOSE 8000
+EXPOSE 8080
 
 # Run the application
 CMD ["python", "medi_backend_BioGPT.py"]
